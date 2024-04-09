@@ -9,7 +9,7 @@ class SearchVC: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+	
 		view.backgroundColor = .systemBackground
 		dismissKeyBoardTapGesture()
 		configureLogoImageView()
@@ -28,7 +28,12 @@ class SearchVC: UIViewController {
 	}
 	
 	@objc func pushFollowerListVC() {
-		guard isUserNameEntered else { return }
+		guard isUserNameEntered else {
+			let alertController = UIAlertController(title: "Empty username", message: "Please enter a username. We need to know who to look for 😄", preferredStyle: .alert)
+			alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+			present(alertController, animated: true)
+			return
+		}
 		
 		let followerListVC = FollowerListVC()
 		followerListVC.userName = userNameTextField.text
