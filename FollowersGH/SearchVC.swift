@@ -26,6 +26,13 @@ class SearchVC: UIViewController {
 		view.addGestureRecognizer(tap)
 	}
 	
+	@objc func pushFollowerListVC() {
+		let followerListVC = FollowerListVC()
+		followerListVC.userName = userNameTextField.text
+		followerListVC.title = userNameTextField.text
+		navigationController?.pushViewController(followerListVC, animated: true)
+	}
+	
 	func configureLogoImageView() {
 		view.addSubview(logoImageView)
 		logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +60,7 @@ class SearchVC: UIViewController {
 	
 	func configureCallToActionButton() {
 		view.addSubview(callToActionButton)
+		callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
 		
 		NSLayoutConstraint.activate([
 			callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),

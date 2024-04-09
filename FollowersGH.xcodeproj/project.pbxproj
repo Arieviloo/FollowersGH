@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E279E9E52BC5608D0098ADAD /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E279E9E42BC5608D0098ADAD /* FollowerListVC.swift */; };
 		E2CD86682BC4D1EF004AD076 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CD86672BC4D1EF004AD076 /* GFButton.swift */; };
 		E2CD866A2BC4D2E8004AD076 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CD86692BC4D2E8004AD076 /* GFTextField.swift */; };
 		E2DE80892BC4373A00D52B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DE80882BC4373A00D52B88 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E279E9E42BC5608D0098ADAD /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		E2CD86672BC4D1EF004AD076 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		E2CD86692BC4D2E8004AD076 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		E2DE80852BC4373A00D52B88 /* FollowersGH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowersGH.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				E2DE80962BC4373B00D52B88 /* Info.plist */,
 				E2DE809C2BC4398C00D52B88 /* FavoriteListVC.swift */,
 				E2DE809E2BC4399700D52B88 /* SearchVC.swift */,
+				E279E9E42BC5608D0098ADAD /* FollowerListVC.swift */,
 			);
 			path = FollowersGH;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				E2DE809F2BC4399700D52B88 /* SearchVC.swift in Sources */,
 				E2CD86682BC4D1EF004AD076 /* GFButton.swift in Sources */,
 				E2DE808D2BC4373A00D52B88 /* ViewController.swift in Sources */,
+				E279E9E52BC5608D0098ADAD /* FollowerListVC.swift in Sources */,
 				E2DE809D2BC4398D00D52B88 /* FavoriteListVC.swift in Sources */,
 				E2DE80892BC4373A00D52B88 /* AppDelegate.swift in Sources */,
 			);
