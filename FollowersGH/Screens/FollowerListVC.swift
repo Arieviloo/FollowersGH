@@ -10,14 +10,14 @@ class FollowerListVC: UIViewController {
 		navigationController?.isNavigationBarHidden = false
 		navigationController?.navigationBar.prefersLargeTitles = true
 		
-		NetworkManager.shared.getFollower(for: userName, page: 1) { (followers, errorMessage) in
-			guard let followers else {
-				self.presentAlert(titleAlert: "Bad stuf happend", message: errorMessage!, titleButton: "Ok")
-				return
+		NetworkManager.shared.getFollower(for: userName, page: 1) { result in
+			switch result {
+			case .success(let followers):
+				print(followers.count)
+				dump(followers)
+			case .failure(let error):
+				self.presentAlert(titleAlert: "Bad stuf happend", message: error.rawValue, titleButton: "Ok")
 			}
-			
-			print(followers.count)
-			dump(followers)
 			
 		}
 	}
