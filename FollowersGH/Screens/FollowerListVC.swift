@@ -2,14 +2,21 @@ import UIKit
 
 class FollowerListVC: UIViewController {
 	
+	enum Section {
+		case main
+	}
+	
 	var userName: String!
 	var collectionView: UICollectionView!
+	var followers: [Follower] = []
+	var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureViewController()
 		configureCollectionView()
 		getFollowers()
+		configureDataSource()
 	
 	}
 	
@@ -43,13 +50,29 @@ class FollowerListVC: UIViewController {
 		NetworkManager.shared.getFollower(for: userName, page: 1) { result in
 			switch result {
 			case .success(let followers):
-				print(followers.count)
-				dump(followers)
+				self.followers = followers
+				self.updateData()
 			case .failure(let error):
 				self.presentAlert(titleAlert: "Bad stuf happend", message: error.rawValue, titleButton: "Ok")
 			}
 			
 		}
+	}
+	
+	private func configureDataSource() {
+		dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: {
+			(collectionView, indexPath, follower ) -> UICollectionViewCell? in
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.identifier, for: indexPath) as! FollowerCell
+			cell.set(follower: follower)
+			return cell
+		})
+	}
+	
+	private func updateData() {
+		var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+		snapshot.appendSections([.main])
+		snapshot.appendItems(followers)
+		DispatchQueue.main.async {self.dataSource.apply(snapshot, animatingDifferences: true)}
 	}
 	
 	

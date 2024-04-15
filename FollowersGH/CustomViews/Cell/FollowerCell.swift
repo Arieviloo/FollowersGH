@@ -7,11 +7,16 @@ class FollowerCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		configure()
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+	
+	public func set(follower: Follower) {
+		usernameLabel.text = follower.login
+		}
 	
 	private func configure() {
 		addSubview(avatarImageView)
@@ -23,6 +28,7 @@ class FollowerCell: UICollectionViewCell {
 			avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
 			avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
 			avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+			avatarImageView.widthAnchor.constraint(equalToConstant: 100),
 			avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
 			
 			usernameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),

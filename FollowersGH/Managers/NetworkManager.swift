@@ -13,8 +13,6 @@ class NetworkManager {
 		}
 
 		URLSession.shared.dataTask(with: url) {data, response, error in
-			DispatchQueue.main.async {
-
 				if let _ =  error {
 					completed(.failure(.unableToComplete))
 				}
@@ -40,7 +38,6 @@ class NetworkManager {
 					completed(.failure(.invalidData))
 
 				}
-			}
 		}.resume()
 	}
 }
